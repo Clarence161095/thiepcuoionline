@@ -1,0 +1,26 @@
+{
+  "version": 2,
+  "builds": [
+    {
+      "src": "package.json",
+      "use": "@vercel/static-build",
+      "config": {
+        "distDir": "dist"
+      }
+    }
+  ],
+  "routes": [
+    {
+      "src": "/template/wedding([1-9]|1[0-3])",
+      "dest": "/template/wedding$1/index.html"
+    },
+    {
+      "src": "/template/wedding([4|6])-custome1",
+      "dest": "/template/wedding$1-custome1/index.html"
+    },
+    {
+      "src": "/(.*)",
+      "dest": "/$1"
+    }
+  ]
+}
